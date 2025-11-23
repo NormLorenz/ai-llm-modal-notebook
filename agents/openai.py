@@ -13,10 +13,12 @@ MODEL_NAME = "gpt-4o-mini"
 
 @app.function(image=image, secrets=secrets, gpu=GPU, timeout=1800)
 def gpt_mini(prompt: str) -> str:
+    import openai
     response = openai.chat.completions.create(
         model="gpt-4o-mini",
         messages=[{"role": "user", "content": prompt}],
         temperature=0.7
     )
     return response.choices[0].message.content
+
 
