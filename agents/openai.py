@@ -16,7 +16,7 @@ MODEL_NAME = "gpt-4o-mini"
 
 @app.function(image=image, secrets=secrets, gpu=GPU, timeout=1800)
 def gpt_mini(prompt: str) -> str:
-    print(os.environ["OPENAI_API_KEY"])
+    # print(os.environ["OPENAI_API_KEY"])
     openai.api_key = os.environ["OPENAI_API_KEY"]
     response = openai.chat.completions.create(
         model="gpt-4o-mini",
@@ -24,6 +24,7 @@ def gpt_mini(prompt: str) -> str:
         temperature=0.7
     )
     return response.choices[0].message.content
+
 
 
 
