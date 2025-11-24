@@ -13,7 +13,8 @@ MODEL_NAME = "gpt-4o-mini"
 
 # OpenAI!
 
-@app.function(image=image, secrets=secrets, gpu=GPU, timeout=1800)
+# @app.function(image=image, secrets=secrets, gpu=GPU, timeout=1800)
+@app.function(secrets=secrets)
 def gpt_mini(prompt: str) -> str:
     openai.api_key = os.environ["OPENAI_API_KEY"]
     print(openai.api_key)
@@ -24,6 +25,7 @@ def gpt_mini(prompt: str) -> str:
     # )
     # return response.choices[0].message.content
     return "Hallo"
+
 
 
 
