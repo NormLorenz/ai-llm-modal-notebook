@@ -18,13 +18,13 @@ MODEL_NAME = "gpt-4o-mini"
 def gpt_mini(prompt: str) -> str:
     openai.api_key = os.environ["OPENAI_API_KEY"]
     print(openai.api_key)
-    # response = openai.chat.completions.create(
-    #     model="gpt-4o-mini",
-    #     messages=[{"role": "user", "content": prompt}],
-    #     temperature=0.7
-    # )
-    # return response.choices[0].message.content
-    return "Hallo"
+    response = openai.chat.completions.create(
+        model="gpt-4o-mini",
+        messages=[{"role": "user", "content": prompt}],
+        temperature=0.7
+    )
+    return response.choices[0].message.content
+
 
 
 
