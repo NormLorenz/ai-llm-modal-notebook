@@ -9,6 +9,7 @@ app = modal.App("openai")
 image = Image.debian_slim().pip_install("requests")
 secrets = [modal.Secret.from_name("openai-api-key")]
 print(modal.Secret.from_name("openai-api-key"))
+print("hello")
 GPU = "T4"
 MODEL_NAME = "gpt-4o-mini"
 
@@ -24,6 +25,7 @@ def gpt_mini(prompt: str) -> str:
         temperature=0.7
     )
     return response.choices[0].message.content
+
 
 
 
